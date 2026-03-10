@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
@@ -128,7 +128,7 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: rgba(245,241,235,0.62);
+      background: rgba(245,241,235,0.78);
     }
     .hero-content {
       position: relative; z-index: 2;
@@ -295,13 +295,14 @@
     /* OFFERINGS */
     .offerings { background: var(--earth); }
     .offerings-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
+      display: grid; grid-template-columns: repeat(5, 1fr);
       gap: 1px; background: rgba(255,255,255,0.08);
       margin-top: 56px;
     }
     .offering-card {
       background: var(--earth); padding: 40px 32px;
       transition: background 0.3s;
+      display: block;
     }
     .offering-card:hover { background: var(--deep); }
     .offering-num {
@@ -534,6 +535,40 @@
 
     /* MOBILE */
     @media (max-width: 900px) {
+      .offerings-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2px;
+        margin-top: 32px;
+      }
+      .offering-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        padding: 22px 24px !important;
+        gap: 18px;
+        min-height: 80px;
+      }
+      .offering-num {
+        font-size: 24px !important;
+        margin-bottom: 0 !important;
+        flex-shrink: 0;
+        width: 36px;
+        opacity: 0.3;
+      }
+      .offering-title {
+        font-size: 17px !important;
+        margin-bottom: 2px !important;
+        line-height: 1.2 !important;
+      }
+      .offering-body {
+        font-size: 12px !important;
+        opacity: 0.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-top: 0 !important;
+      }
       nav { padding: 16px 20px; }
       nav.scrolled { padding: 14px 20px; }
       .nav-links { display: none; }
@@ -577,19 +612,21 @@
 </head>
 <body>
 
-  <div class="lang-switch">
+  <div class="lang-switch" id="langSwitch">
     <button class="lang-btn active" id="btn-he" onclick="setLang('he')">HE</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
   </div>
 
   <nav id="navbar">
-    <a href="#home" class="nav-logo">Colonia</a>
+    <a href="index.html" class="nav-logo">Colonia</a>
     <ul class="nav-links">
-      <li><a href="#about"><span class="he">אודות</span><span class="en">About</span></a></li>
-      <li><a href="#gallery"><span class="he">גלריה</span><span class="en">Gallery</span></a></li>
-      <li><a href="#room"><span class="he">הצימר</span><span class="en">The Room</span></a></li>
-      <li><a href="#location"><span class="he">מיקום</span><span class="en">Location</span></a></li>
-      <li><a href="#booking" class="nav-cta"><span class="he">הזמנה</span><span class="en">Book</span></a></li>
+      <li><a href="events.html"><span class="he">אירועים</span><span class="en">Events</span></a></li>
+      <li><a href="shows.html"><span class="he">הופעות</span><span class="en">Shows</span></a></li>
+      <li><a href="restaurant.html"><span class="he">מסעדה</span><span class="en">Restaurant</span></a></li>
+      <li><a href="diving.html"><span class="he">צלילה</span><span class="en">Diving</span></a></li>
+      <li><a href="room.html"><span class="he">צימר</span><span class="en">Room</span></a></li>
+      <li><a href="testimonials.html"><span class="he">המלצות</span><span class="en">Reviews</span></a></li>
+      <li><a href="index.html#booking" class="nav-cta"><span class="he">סגירת תאריך</span><span class="en">Book Now</span></a></li>
     </ul>
   </nav>
 
@@ -598,11 +635,11 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow"><span class="he">השטח הפרטי הדרומי ביותר בישראל</span><span class="en">Israel's Southernmost Private Land</span></p>
+      <p class="hero-eyebrow"><span class="he">מתחם אירועי חברה | אילת</span><span class="en">Corporate Events Venue | Eilat</span></p>
       <h1>Colonia<em>Rest House</em></h1>
       <p class="hero-desc">
-        <span class="he">גן אירועים, חתונות, הופעות וצימר על צלע הרי אילת — ממש ליד מעבר טאבה.</span>
-        <span class="en">Events garden, weddings, live shows and a room on the Eilat mountain slopes — right next to Taba crossing.</span>
+        <span class="he">מתחם אירועים ייחודי לאירועי חברה, גיבושים, הפקות והופעות - בקצה הדרומי של ישראל</span>
+        <span class="en">A unique corporate events venue for company events, team-building, productions and live shows - at Israel's southern tip</span>
       </p>
       <div class="hero-btns">
         <a href="#booking" class="btn-primary filled"><span class="he">הזמן מקום</span><span class="en">Reserve Now</span></a>
@@ -620,7 +657,7 @@
       <span class="strip-label en">Southernmost in Israel</span>
     </div>
     <div class="strip-item">
-      <span class="strip-num">4</span>
+      <span class="strip-num">5</span>
       <span class="strip-label he">חוויות ייחודיות</span>
       <span class="strip-label en">Unique Experiences</span>
     </div>
@@ -652,12 +689,12 @@
           <span class="about-tag"><span class="he">הסיפור</span><span class="en">The Story</span></span>
           <p class="section-eyebrow"><span class="he">על קולוניה</span><span class="en">About Colonia</span></p>
           <h2 class="section-title">
-            <span class="he">מקום שאנטי<br/><em>בקצה הארץ</em></span>
-            <span class="en">A Shanti Place<br/><em>at the Edge</em></span>
+            <span class="he">מתחם פרמיום<br/><em>בקצה הארץ</em></span>
+            <span class="en">Premium Venue<br/><em>at the Edge</em></span>
           </h2>
           <p class="section-body">
-            <span class="he">קולוניה Rest House יושב על צלע הרי אילת האדומים, ממש ליד מעבר גבול טאבה. דשא ירוק, מבני עץ טבעיים, נוף פתוח לים סוף ולהרי ירדן. מקום עם אנרגיה מיוחדת ואווירת שאנטי שקשה למצוא.</span>
-            <span class="en">Colonia Rest House sits on the slopes of Eilat's red mountains, right next to the Taba border crossing. Green lawns, natural wood structures, open views to the Red Sea and Jordan's mountains. A place with rare energy and a shanti atmosphere unlike anything else.</span>
+            <span class="he">קולוניה יושב על צלע הרי אילת האדומים, ממש ליד מעבר גבול טאבה. דשא ירוק, מבני עץ טבעיים, נוף פתוח לים סוף ולהרי ירדן. מתחם אירועים מקצועי עם אנרגיה ייחודית - מושלם לאירועי חברה, גיבושים, כנסים והפקות.</span>
+            <span class="en">Colonia sits on the slopes of Eilat's red mountains, right next to the Taba border crossing. Green lawns, natural wood structures, open views to the Red Sea and Jordan's mountains. A professional events venue with unique energy - perfect for corporate events, team-building, conferences and productions.</span>
           </p>
         </div>
       </div>
@@ -671,30 +708,35 @@
     <div class="container">
       <p class="section-eyebrow light"><span class="he">מה יש בקולוניה</span><span class="en">What's at Colonia</span></p>
       <h2 class="section-title light">
-        <span class="he">ארבעה עולמות,<br/><em>מקום אחד</em></span>
-        <span class="en">Four Worlds,<br/><em>One Place</em></span>
+        <span class="he">חמישה עולמות,<br/><em>מקום אחד</em></span>
+        <span class="en">Five Worlds,<br/><em>One Place</em></span>
       </h2>
       <div class="offerings-grid">
-        <div class="offering-card">
+        <a href="events.html" class="offering-card" style="text-decoration:none;">
           <span class="offering-num">01</span>
-          <div class="offering-title"><span class="he">גן אירועים</span><span class="en">Events Garden</span></div>
-          <p class="offering-body"><span class="he">חתונות, אירועי חברה ומסיבות פרטיות ברקע הרי אילת. אחד המקומות המיוחדים ביותר בישראל לאירוע בלתי נשכח.</span><span class="en">Weddings, corporate events and private parties with the backdrop of Eilat's mountains. One of Israel's most unique event venues.</span></p>
-        </div>
-        <div class="offering-card">
+          <div class="offering-title"><span class="he">גן האירועים</span><span class="en">Events Garden</span></div>
+          <p class="offering-body"><span class="he">אירועי חברה, גיבושים, כנסים ומסיבות פרטיות - ברקע הרי אילת וים סוף.</span><span class="en">Corporate events, team-building, conferences and private parties - against Eilat's mountains and the Red Sea.</span></p>
+        </a>
+        <a href="shows.html" class="offering-card" style="text-decoration:none;">
           <span class="offering-num">02</span>
-          <div class="offering-title"><span class="he">הופעות ומוזיקה</span><span class="en">Shows & Music</span></div>
-          <p class="offering-body"><span class="he">במת הופעות מקצועית עם תאורה ומוסיקה מלאה. אמנים ולהקות מגיעים לנגן על הרקע הכי דרמטי בישראל — הרי אילת בלילה.</span><span class="en">Professional stage with full lighting and sound. Artists perform against the most dramatic backdrop in Israel — Eilat mountains by night.</span></p>
-        </div>
-        <div class="offering-card">
+          <div class="offering-title"><span class="he">הופעות ואירועי חברה</span><span class="en">Shows & Corporate</span></div>
+          <p class="offering-body"><span class="he">במת הופעות מקצועית לאירועי השקה, מסיבות חברה וקונצרטים - הרקע הכי דרמטי בישראל.</span><span class="en">Professional stage for launch events, company parties and concerts - the most dramatic backdrop in Israel.</span></p>
+        </a>
+        <a href="restaurant.html" class="offering-card" style="text-decoration:none;">
           <span class="offering-num">03</span>
-          <div class="offering-title"><span class="he">צימר אחד, ייחודי</span><span class="en">One Private Room</span></div>
-          <p class="offering-body"><span class="he">צימר אחד בלבד — לפרטיות מוחלטת. תקרת עץ, בלקון עם נוף ישיר לים סוף, עיצוב טבעי ואנרגיה מיוחדת.</span><span class="en">One room only — for complete privacy. Wooden ceiling, balcony with a direct Red Sea view, natural design and rare atmosphere.</span></p>
-        </div>
-        <div class="offering-card">
+          <div class="offering-title"><span class="he">מסעדה ומנגל</span><span class="en">Restaurant & BBQ</span></div>
+          <p class="offering-body"><span class="he">מטבח פתוח, מנגל מקצועי וקייטרינג לאירועים - אוכל טוב עם אווירה של ים סוף.</span><span class="en">Open kitchen, professional BBQ and event catering - great food with a Red Sea atmosphere.</span></p>
+        </a>
+        <a href="diving.html" class="offering-card" style="text-decoration:none;">
           <span class="offering-num">04</span>
-          <div class="offering-title"><span class="he">מועדון צלילה</span><span class="en">Dive Club</span></div>
-          <p class="offering-body"><span class="he">ים סוף הוא אחד מאתרי הצלילה המרהיבים בעולם. מהקולוניה, הכניסה לעולם האלמוגים היא פשוט מעבר לפינה.</span><span class="en">The Red Sea is one of the world's most spectacular dive sites. From Colonia, entering the coral world is just around the corner.</span></p>
-        </div>
+          <div class="offering-title"><span class="he">מועדון הצלילה</span><span class="en">Dive Club</span></div>
+          <p class="offering-body"><span class="he">ים סוף - אחד מאתרי הצלילה המרהיבים בעולם. קורסים, ציוד, צלילות מודרכות.</span><span class="en">The Red Sea - one of the world's most spectacular dive sites. Courses, equipment, guided dives.</span></p>
+        </a>
+        <a href="room.html" class="offering-card" style="text-decoration:none;">
+          <span class="offering-num">05</span>
+          <div class="offering-title"><span class="he">הצימר</span><span class="en">The Room</span></div>
+          <p class="offering-body"><span class="he">צימר אחד בלבד - לפרטיות מוחלטת. תקרת עץ, בלקון עם נוף ישיר לים סוף.</span><span class="en">One room only - for complete privacy. Wooden ceiling, balcony with direct Red Sea view.</span></p>
+        </a>
       </div>
     </div>
   </section>
@@ -779,8 +821,8 @@
         <h2 class="memorial-title"><span class="he">סמל זוהר שלום ז"ל</span><span class="en">Corporal Zohar Shalom z"l</span></h2>
         <p class="memorial-subtitle">09.08.2004 — 21.06.2024</p>
         <p class="memorial-text">
-          <span class="he">בן 20 מעפולה, נפל במלחמת חרבות ברזל. בנם האהוב של ליטל וגולן, אח לשלוש אחיות. אביו גולן בנה את הצימר הזה כאן בקולוניה — המקום שאהב — כדי להנציח את זכרו.</span>
-          <span class="en">Age 20 from Afula, fell in the Iron Swords War. Beloved son of Lital and Golan, brother to three sisters. His father Golan built this room at Colonia — the place he loved — to keep his memory alive forever.</span>
+          <span class="he">בן 20 מאילת, נפל במלחמת חרבות ברזל. אח לשלוש אחיות. אביו גולן בנה את הצימר הזה כאן בקולוניה — המקום שאהב — כדי להנציח את זכרו.</span>
+          <span class="en">Age 20 from Eilat, fell in the Iron Swords War. Brother to three sisters. His father Golan built this room at Colonia — the place he loved — to keep his memory alive forever.</span>
           <em>
             <span class="he">"הוא אהב מאוד את הפינה הזו בעולם, ועל כן בחרנו להנציח אותו כאן."</span>
             <span class="en">"He loved this corner of the world deeply, and so we chose to memorialize him here."</span>
@@ -878,7 +920,7 @@
             <li class="loc-item"><span class="loc-num">03</span><div class="loc-text"><strong><span class="he">20 דקות משדה התעופה</span><span class="en">20 min from Ramon Airport</span></strong><span><span class="he">נמל תעופה רמון</span><span class="en">Direct from the airport</span></span></div></li>
             <li class="loc-item"><span class="loc-num">04</span><div class="loc-text"><strong><span class="he">נוף ישיר לים סוף</span><span class="en">Direct Red Sea View</span></strong><span><span class="he">הים רואים מהצימר ומהגן</span><span class="en">Sea visible from room and garden</span></span></div></li>
           </ul>
-          <a href="https://maps.google.com/?q=29.5049,34.9157" target="_blank" class="btn-primary" style="margin-top:36px;display:inline-block;border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);">
+          <a href="https://maps.app.goo.gl/pSJWfZtYGJY27FjQ9" target="_blank" class="btn-primary" style="margin-top:36px;display:inline-block;border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);">
             <span class="he">פתח ב-Google Maps</span><span class="en">Open in Google Maps</span>
           </a>
         </div>
@@ -892,19 +934,19 @@
       <p class="section-eyebrow"><span class="he">צרו קשר</span><span class="en">Contact</span></p>
       <h2 class="section-title"><span class="he">דברו <em>איתנו</em></span><span class="en">Get in <em>Touch</em></span></h2>
       <div class="contact-grid">
-        <a href="tel:PHONE" class="contact-card">
+        <a href="tel:+972537764807" class="contact-card">
           <span class="c-type"><span class="he">טלפון</span><span class="en">Phone</span></span>
-          <div class="c-val" id="tel-val"><span class="he">בקרוב</span><span class="en">Coming soon</span></div>
+          <div class="c-val" id="tel-val">+972-53-776-4807</div>
           <div class="c-sub"><span class="he">שיחה ישירה</span><span class="en">Direct call</span></div>
         </a>
-        <a href="https://wa.me/PHONE" class="contact-card">
+        <a href="https://wa.me/972537764807" class="contact-card">
           <span class="c-type">WhatsApp</span>
           <div class="c-val"><span class="he">שלח הודעה</span><span class="en">Send a message</span></div>
           <div class="c-sub"><span class="he">זמין 24/7</span><span class="en">Available 24/7</span></div>
         </a>
-        <a href="https://maps.google.com/?q=29.5049,34.9157" target="_blank" class="contact-card">
+        <a href="https://maps.app.goo.gl/pSJWfZtYGJY27FjQ9" target="_blank" class="contact-card">
           <span class="c-type"><span class="he">מיקום</span><span class="en">Location</span></span>
-          <div class="c-val"><span class="he">ליד מעבר טאבה, אילת</span><span class="en">Next to Taba, Eilat</span></div>
+          <div class="c-val"><span class="he">דרך מצריים 160, אילת 8804346</span><span class="en">Derech Mitzraim 160, Eilat 8804346</span></div>
           <div class="c-sub">Google Maps</div>
         </a>
       </div>
@@ -949,3 +991,4 @@
   </script>
 </body>
 </html>
+

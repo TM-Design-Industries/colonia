@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הצימר של זוהר | Colonia Rest House Eilat</title>
+  <meta name="description" content="הצימר של זוהר — צימר פרטי אחד בלבד בקולוניה אילת, עם נוף ישיר לים סוף. בנוי לזכרו של זוהר שלום ז\"ל." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #EDE8DF; --warm: #E2D8C8; --sand: #D4C4A4; --tan: #C8A882;
+      --brown: #C07848; --deep: #B86030; --earth: #6A5048; --rust: #B06838;
+      --rust2: #C87848; --dark: #524038; --white: #F5F1EB;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Heebo', sans-serif; background: var(--white); color: var(--earth); overflow-x: hidden; font-weight: 300; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; }
+    section, footer { width: 100%; overflow-x: hidden; }
+    img { max-width: 100%; }
+
+    /* LANG */
+    .lang-switch { position: fixed; top: 20px; left: 24px; z-index: 1000; display: flex; gap: 4px; }
+    .lang-btn { background: rgba(245,241,235,0.7); border: 1px solid var(--sand); color: var(--brown); border-radius: 3px; padding: 5px 12px; font-size: 11px; font-weight: 500; cursor: pointer; letter-spacing: 1px; font-family: 'Heebo', sans-serif; transition: all 0.2s; }
+    .lang-btn.active, .lang-btn:hover { background: var(--earth); color: var(--cream); border-color: var(--earth); }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 900; padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s; }
+    nav.scrolled { background: rgba(250,250,248,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--warm); padding: 16px 48px; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--earth); letter-spacing: 6px; text-decoration: none; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--brown); text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--earth); }
+    .nav-cta { border: 1px solid var(--tan) !important; padding: 8px 20px; border-radius: 2px; color: var(--earth) !important; }
+    .nav-cta:hover { background: var(--earth) !important; border-color: var(--earth) !important; color: var(--cream) !important; }
+
+    /* HERO */
+    .hero { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: url('room2.jpg') center 40% / cover no-repeat; }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(245,241,235,0.5); }
+    .hero-content { position: relative; z-index: 2; padding: 0 64px 72px; color: var(--earth); width: 100%; }
+    .hero-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: var(--rust); margin-bottom: 16px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 8vw, 88px); font-weight: 300; line-height: 0.95; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 20px; color: var(--earth); }
+    .hero h1 em { font-style: italic; font-weight: 300; display: block; font-size: 0.5em; letter-spacing: 12px; opacity: 0.65; margin-top: 8px; }
+    .hero-desc { font-size: 14px; font-weight: 300; color: var(--brown); letter-spacing: 1px; line-height: 1.7; max-width: 480px; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn-primary { background: transparent; color: var(--earth); border: 1px solid var(--tan); padding: 13px 32px; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.25s; display: inline-block; font-family: 'Heebo', sans-serif; border-radius: 2px; }
+    .btn-primary:hover { background: var(--earth); color: var(--cream); border-color: var(--earth); }
+    .btn-primary.filled { background: var(--rust); border-color: var(--rust); color: var(--white); }
+    .btn-primary.filled:hover { background: var(--rust2); border-color: var(--rust2); }
+    .btn-dark { background: var(--earth); color: var(--cream); border: 1px solid var(--earth); padding: 13px 32px; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.25s; display: inline-block; font-family: 'Heebo', sans-serif; border-radius: 2px; }
+    .btn-dark:hover { background: var(--rust); border-color: var(--rust); }
+
+    /* SECTIONS */
+    section { padding: 100px 48px; }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: var(--rust); margin-bottom: 14px; }
+    .section-eyebrow.light { color: var(--tan); }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 300; line-height: 1.1; margin-bottom: 20px; color: var(--earth); }
+    .section-title.light { color: var(--cream); }
+    .section-title em { font-style: italic; }
+    .section-body { font-size: 15px; line-height: 1.85; color: var(--brown); font-weight: 300; max-width: 560px; }
+
+    /* DIVIDER */
+    .divider { height: 1px; background: var(--warm); margin: 0 48px; }
+
+    /* MEMORIAL NOTE */
+    .memorial-note { background: var(--dark); padding: 28px 48px; text-align: center; }
+    .memorial-note-inner { max-width: 640px; margin: 0 auto; display: flex; align-items: center; gap: 24px; justify-content: center; }
+    .memorial-note-line { width: 40px; height: 1px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+    .memorial-note-text { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.7; font-style: italic; }
+    .memorial-note-text strong { color: rgba(255,255,255,0.6); font-weight: 400; }
+
+    /* AVAILABILITY BADGE */
+    .avail-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(80,130,80,0.15); border: 1px solid rgba(80,130,80,0.3); border-radius: 20px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #5a8a5a; font-weight: 500; margin-bottom: 20px; }
+    .avail-dot { width: 8px; height: 8px; background: #5a8a5a; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.2)} }
+
+    /* ROOM DETAILS */
+    .room-detail { background: var(--cream); }
+    .room-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .room-photo-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 320px 200px; gap: 4px; }
+    .photo-main { grid-column: span 2; overflow: hidden; }
+    .photo-main img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-sm { overflow: hidden; }
+    .photo-sm img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .photo-sm:hover img { transform: scale(1.04); }
+    .room-features { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .room-feature { display: flex; align-items: center; gap: 14px; font-size: 13px; color: var(--brown); font-weight: 300; letter-spacing: 0.5px; }
+    .room-feature::before { content: ''; width: 18px; height: 1px; background: var(--rust); flex-shrink: 0; }
+
+    /* EXPERIENCE */
+    .experience { background: var(--earth); }
+    .exp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: rgba(255,255,255,0.08); margin-top: 52px; }
+    .exp-card { background: var(--earth); padding: 40px 28px; transition: background 0.3s; }
+    .exp-card:hover { background: var(--deep); }
+    .exp-num { font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--rust2); letter-spacing: 2px; display: block; margin-bottom: 18px; }
+    .exp-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--cream); margin-bottom: 12px; font-weight: 400; line-height: 1.2; }
+    .exp-body { font-size: 13px; color: rgba(244,239,232,0.5); line-height: 1.8; font-weight: 300; }
+
+    /* NEARBY */
+    .nearby { background: var(--warm); }
+    .nearby-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: var(--sand); margin-top: 48px; }
+    .nearby-card { background: var(--warm); padding: 32px 24px; transition: background 0.25s; }
+    .nearby-card:hover { background: var(--cream); }
+    .nearby-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: var(--rust); letter-spacing: 2px; display: block; margin-bottom: 12px; }
+    .nearby-title { font-size: 14px; font-weight: 500; color: var(--earth); margin-bottom: 6px; }
+    .nearby-dist { font-size: 11px; color: var(--brown); font-weight: 300; }
+
+    /* CALENDAR PLACEHOLDER */
+    .calendar-section { background: var(--cream); }
+    .calendar-ui { border: 1px solid var(--sand); border-radius: 4px; padding: 32px; max-width: 480px; }
+    .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .cal-month { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--earth); }
+    .cal-nav { display: flex; gap: 8px; }
+    .cal-btn { width: 28px; height: 28px; border: 1px solid var(--sand); background: transparent; border-radius: 2px; cursor: not-allowed; color: var(--brown); font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; text-align: center; }
+    .cal-day-label { font-size: 9px; letter-spacing: 1px; color: var(--tan); text-transform: uppercase; padding: 4px; }
+    .cal-day { font-size: 12px; padding: 8px 4px; color: var(--brown); border-radius: 2px; }
+    .cal-day.empty { color: transparent; }
+    .cal-day.booked { color: var(--sand); text-decoration: line-through; }
+    .cal-day.available { color: var(--earth); font-weight: 500; }
+    .cal-note { margin-top: 20px; font-size: 11px; letter-spacing: 2px; color: var(--brown); text-align: center; text-transform: uppercase; }
+
+    /* PHOTO STRIP */
+    .photo-strip { background: var(--white); padding: 60px 0; }
+    .strip-header { padding: 0 48px 28px; }
+    .strip-scroll { display: flex; gap: 8px; overflow-x: auto; padding: 0 48px 16px; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; }
+    .strip-scroll::-webkit-scrollbar { display: none; }
+    .strip-photo { flex-shrink: 0; width: 300px; height: 220px; overflow: hidden; border-radius: 1px; }
+    .strip-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .strip-photo:hover img { transform: scale(1.04); }
+
+    /* MEMORIAL FULL */
+    .memorial { background: var(--dark); }
+    .memorial-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .memorial-line { width: 1px; height: 56px; background: rgba(255,255,255,0.15); margin: 0 auto 36px; }
+    .memorial-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--cream); letter-spacing: 2px; margin-bottom: 6px; }
+    .memorial-subtitle { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 36px; }
+    .memorial-text { font-size: 15px; line-height: 1.95; color: rgba(255,255,255,0.55); font-weight: 300; }
+    .memorial-text em { display: block; margin-top: 20px; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; line-height: 1.6; }
+    .memorial-dates { margin-top: 40px; font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: rgba(255,255,255,0.2); padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+    /* BOOKING CTA */
+    .booking-cta { background: var(--warm); padding: 80px 48px; text-align: center; }
+    .booking-cta-inner { max-width: 560px; margin: 0 auto; }
+
+    /* FAQ */
+    .faq { background: var(--cream); }
+    .faq-list { margin-top: 48px; max-width: 720px; }
+    .faq-item { border-bottom: 1px solid var(--warm); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: pointer; font-size: 15px; font-weight: 400; color: var(--earth); letter-spacing: 0.3px; gap: 20px; }
+    .faq-q span { flex: 1; }
+    .faq-icon { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--sand); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; color: var(--rust); font-size: 16px; line-height: 1; }
+    .faq-item.open .faq-icon { background: var(--earth); border-color: var(--earth); color: var(--cream); transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a-inner { padding: 0 0 20px; font-size: 14px; color: var(--brown); line-height: 1.85; font-weight: 300; max-width: 600px; }
+
+    /* STICKY CTA */
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; padding: 14px 20px; background: var(--earth); display: none; justify-content: center; border-top: 1px solid rgba(255,255,255,0.1); }
+    .sticky-cta a { color: var(--cream); text-decoration: none; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; font-family: 'Heebo', sans-serif; }
+    .sticky-cta.show { display: flex; }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: rgba(255,255,255,0.25); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; font-size: 11px; letter-spacing: 1px; }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    footer a:hover { color: var(--cream); }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; } nav.scrolled { padding: 14px 20px; } .nav-links { display: none; }
+      .lang-switch { top: 16px; left: 16px; }
+      .hero-content { padding: 0 20px 56px; }
+      section { padding: 64px 20px; }
+      .memorial-note { padding: 20px; }
+      .room-grid { grid-template-columns: 1fr; gap: 36px; }
+      .room-photo-grid { grid-template-rows: 220px 140px; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .nearby-grid { grid-template-columns: 1fr 1fr; }
+      .strip-scroll { padding: 0 20px 16px; }
+      .strip-header { padding: 0 20px 28px; }
+      .strip-photo { width: 240px; height: 160px; }
+      .booking-cta { padding: 60px 20px; }
+      .faq { padding: 64px 20px; }
+      footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px 20px; }
+      .divider { margin: 0; }
+      .calendar-section { padding: 64px 20px; }
+      .calendar-ui { max-width: 100%; }
+    }
+
+    /* LANG */
+    .he { display: block; } .en { display: none; }
+    body.lang-en .he { display: none; } body.lang-en .en { display: block; }
+    body.lang-en { direction: ltr; }
+    span.he { display: inline; } span.en { display: none; }
+    body.lang-en span.he { display: none; } body.lang-en span.en { display: inline; }
+  </style>
+</head>
+<body>
+
+  <div class="lang-switch">
+    <button class="lang-btn active" id="btn-he" onclick="setLang('he')">HE</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Colonia</a>
+    <ul class="nav-links">
+      <li><a href="events.html"><span class="he">אירועים</span><span class="en">Events</span></a></li>
+      <li><a href="shows.html"><span class="he">הופעות</span><span class="en">Shows</span></a></li>
+      <li><a href="restaurant.html"><span class="he">מסעדה</span><span class="en">Restaurant</span></a></li>
+      <li><a href="diving.html"><span class="he">צלילה</span><span class="en">Diving</span></a></li>
+      <li><a href="room.html"><span class="he">צימר</span><span class="en">Room</span></a></li>
+      <li><a href="testimonials.html"><span class="he">המלצות</span><span class="en">Reviews</span></a></li>
+      <li><a href="index.html#booking" class="nav-cta"><span class="he">סגירת תאריך</span><span class="en">Book Now</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- MEMORIAL NOTE -->
+  <div class="memorial-note">
+    <div class="memorial-note-inner">
+      <div class="memorial-note-line"></div>
+      <p class="memorial-note-text">
+        <span class="he">הצימר הזה נבנה לזכרו של <strong>זוהר שלום ז"ל</strong>, שאביו גולן, בעל קולוניה, בנה לזכרו.</span>
+        <span class="en">This room was built in memory of <strong>Zohar Shalom z"l</strong>, whose father Golan, Colonia's owner, built it to honor his memory.</span>
+      </p>
+      <div class="memorial-note-line"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home" style="padding:0;">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow"><span class="he">צימר אחד. פרטיות מוחלטת.</span><span class="en">One Room. Complete Privacy.</span></p>
+      <h1>
+        <span class="he">הצימר</span><span class="en">The Room</span>
+        <em><span class="he">של זוהר</span><span class="en">of Zohar</span></em>
+      </h1>
+      <p class="hero-desc">
+        <span class="he">צימר אחד בלבד בקולוניה. תקרת עץ, בלקון עם נוף ישיר לים סוף, שקט מוחלט. חוויה שלא ניתן לשכפל.</span>
+        <span class="en">Only one room at Colonia. Wooden ceiling, balcony with direct Red Sea view, complete quiet. An experience that cannot be replicated.</span>
+      </p>
+      <div class="hero-btns">
+        <a href="#booking-cta" class="btn-primary filled"><span class="he">לפרטים ומחירים</span><span class="en">Pricing & Details</span></a>
+        <a href="#room-detail" class="btn-primary"><span class="he">גלו את הצימר</span><span class="en">Explore the Room</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOM DETAILS -->
+  <section class="room-detail" id="room-detail">
+    <div class="container">
+      <div class="room-grid">
+        <div>
+          <div class="avail-badge">
+            <div class="avail-dot"></div>
+            <span class="he">זמין כעת</span><span class="en">Available Now</span>
+          </div>
+          <p class="section-eyebrow"><span class="he">הצימר של זוהר ז"ל</span><span class="en">Zohar's Room</span></p>
+          <h2 class="section-title"><span class="he">צימר אחד.<br/><em>נוף אינסופי.</em></span><span class="en">One Room.<br/><em>Infinite View.</em></span></h2>
+          <p class="section-body">
+            <span class="he">הצימר היחיד בקולוניה — מה שאומר שאתם האורחים היחידים. פרטיות מוחלטת, שקט מוחלט, ונוף לים סוף שאי אפשר לשכוח.</span>
+            <span class="en">The only room at Colonia — meaning you are the only guests. Complete privacy, complete quiet, and a Red Sea view that cannot be forgotten.</span>
+          </p>
+          <ul class="room-features" style="margin-top:28px;">
+            <li class="room-feature"><span class="he">תקרת עץ ועיצוב טבעי ייחודי</span><span class="en">Wooden ceiling and unique natural design</span></li>
+            <li class="room-feature"><span class="he">בלקון פרטי עם נוף ישיר לים סוף</span><span class="en">Private balcony with direct Red Sea view</span></li>
+            <li class="room-feature"><span class="he">שינה ל-2 בלבד</span><span class="en">Sleeps 2 only</span></li>
+            <li class="room-feature"><span class="he">חדר אמבטיה פרטי</span><span class="en">Private bathroom</span></li>
+            <li class="room-feature"><span class="he">מזגן</span><span class="en">Air conditioning</span></li>
+            <li class="room-feature"><span class="he">מטבחון</span><span class="en">Kitchenette</span></li>
+            <li class="room-feature"><span class="he">פרטיות מוחלטת — אין אורחים אחרים בנכס</span><span class="en">Complete privacy — no other guests on property</span></li>
+          </ul>
+          <a href="#booking-cta" class="btn-dark" style="margin-top:36px;">
+            <span class="he">לפרטים ומחירים</span><span class="en">Details & Pricing</span>
+          </a>
+        </div>
+        <div class="room-photo-grid">
+          <div class="photo-main"><img src="room2.jpg" alt="Room sea view" /></div>
+          <div class="photo-sm"><img src="room1.jpg" alt="Room interior" /></div>
+          <div class="photo-sm"><img src="garden3.jpg" alt="View from room" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPERIENCE -->
+  <section class="experience">
+    <div class="container">
+      <p class="section-eyebrow light"><span class="he">חוויה</span><span class="en">Experience</span></p>
+      <h2 class="section-title light"><span class="he">מה מרגישים <em>כאן</em></span><span class="en">What It Feels <em>Like Here</em></span></h2>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <span class="exp-num">01</span>
+          <div class="exp-title"><span class="he">זריחה על ים סוף</span><span class="en">Red Sea Sunrise</span></div>
+          <p class="exp-body"><span class="he">התעוררות לנוף שכבושים עצמו — ים סוף נדלק בכתום ואדום, ולא אורח אחר לידכם.</span><span class="en">Waking up to a view that can't be bought — the Red Sea lit in orange and red, with no other guest nearby.</span></p>
+        </div>
+        <div class="exp-card">
+          <span class="exp-num">02</span>
+          <div class="exp-title"><span class="he">פרטיות מוחלטת</span><span class="en">Complete Privacy</span></div>
+          <p class="exp-body"><span class="he">אין שכנים. אין אורחים אחרים. רק שניים מכם, הנוף, וקולוניה שלמה עם האנרגיה שלה.</span><span class="en">No neighbors. No other guests. Just the two of you, the view, and all of Colonia's rare energy.</span></p>
+        </div>
+        <div class="exp-card">
+          <span class="exp-num">03</span>
+          <div class="exp-title"><span class="he">פנורמה הרים וים</span><span class="en">Mountain &amp; Sea Panorama</span></div>
+          <p class="exp-body"><span class="he">הרי אילת האדומים מאחור, ים סוף לפנים — נוף שפגשתם רק בתמונות, עד עכשיו.</span><span class="en">Red Eilat mountains behind, Red Sea ahead — a view you've only seen in photos, until now.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEARBY -->
+  <section class="nearby">
+    <div class="container">
+      <p class="section-eyebrow"><span class="he">מה סביבה</span><span class="en">What's Nearby</span></p>
+      <h2 class="section-title"><span class="he">הכל <em>קרוב</em></span><span class="en">Everything <em>Close</em></span></h2>
+      <div class="nearby-grid">
+        <div class="nearby-card">
+          <span class="nearby-num">5 <span class="he">דק' הליכה</span><span class="en">min walk</span></span>
+          <div class="nearby-title"><span class="he">מועדון הצלילה</span><span class="en">Dive Club</span></div>
+          <p class="nearby-dist"><span class="he">גישה ישירה לים סוף</span><span class="en">Direct access to the Red Sea</span></p>
+        </div>
+        <div class="nearby-card">
+          <span class="nearby-num"><span class="he">באתר</span><span class="en">On-site</span></span>
+          <div class="nearby-title"><span class="he">גן האירועים</span><span class="en">Events Garden</span></div>
+          <p class="nearby-dist"><span class="he">2,000 מ"ר של גן ייחודי</span><span class="en">2,000 sqm unique garden</span></p>
+        </div>
+        <div class="nearby-card">
+          <span class="nearby-num"><span class="he">באתר</span><span class="en">On-site</span></span>
+          <div class="nearby-title"><span class="he">מסעדה</span><span class="en">Restaurant</span></div>
+          <p class="nearby-dist"><span class="he">ממש כאן, בקולוניה</span><span class="en">Right here, at Colonia</span></p>
+        </div>
+        <div class="nearby-card">
+          <span class="nearby-num">5 <span class="he">דק' נסיעה</span><span class="en">min drive</span></span>
+          <div class="nearby-title"><span class="he">מעבר טאבה</span><span class="en">Taba Crossing</span></div>
+          <p class="nearby-dist"><span class="he">גישה לאתרי ים סוף המצרי</span><span class="en">Access to Egyptian Red Sea sites</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="calendar-section">
+    <div class="container">
+      <p class="section-eyebrow"><span class="he">זמינות</span><span class="en">Availability</span></p>
+      <h2 class="section-title" style="margin-bottom:36px;"><span class="he">בדיקת <em>תאריכים</em></span><span class="en">Check <em>Dates</em></span></h2>
+      <div class="calendar-ui">
+        <div class="cal-header">
+          <div class="cal-month"><span class="he">מרץ 2026</span><span class="en">March 2026</span></div>
+          <div class="cal-nav">
+            <div class="cal-btn">&#8249;</div>
+            <div class="cal-btn">&#8250;</div>
+          </div>
+        </div>
+        <div class="cal-grid">
+          <div class="cal-day-label"><span class="he">א</span><span class="en">Su</span></div>
+          <div class="cal-day-label"><span class="he">ב</span><span class="en">Mo</span></div>
+          <div class="cal-day-label"><span class="he">ג</span><span class="en">Tu</span></div>
+          <div class="cal-day-label"><span class="he">ד</span><span class="en">We</span></div>
+          <div class="cal-day-label"><span class="he">ה</span><span class="en">Th</span></div>
+          <div class="cal-day-label"><span class="he">ו</span><span class="en">Fr</span></div>
+          <div class="cal-day-label"><span class="he">ש</span><span class="en">Sa</span></div>
+          <div class="cal-day empty">-</div>
+          <div class="cal-day empty">-</div>
+          <div class="cal-day empty">-</div>
+          <div class="cal-day empty">-</div>
+          <div class="cal-day empty">-</div>
+          <div class="cal-day empty">-</div>
+          <div class="cal-day available">1</div>
+          <div class="cal-day available">2</div>
+          <div class="cal-day available">3</div>
+          <div class="cal-day available">4</div>
+          <div class="cal-day available">5</div>
+          <div class="cal-day available">6</div>
+          <div class="cal-day available">7</div>
+          <div class="cal-day available">8</div>
+          <div class="cal-day booked">9</div>
+          <div class="cal-day booked">10</div>
+          <div class="cal-day booked">11</div>
+          <div class="cal-day booked">12</div>
+          <div class="cal-day booked">13</div>
+          <div class="cal-day booked">14</div>
+          <div class="cal-day booked">15</div>
+          <div class="cal-day available">16</div>
+          <div class="cal-day available">17</div>
+          <div class="cal-day available">18</div>
+          <div class="cal-day available">19</div>
+          <div class="cal-day available">20</div>
+          <div class="cal-day available">21</div>
+          <div class="cal-day booked">22</div>
+          <div class="cal-day booked">23</div>
+          <div class="cal-day available">24</div>
+          <div class="cal-day available">25</div>
+          <div class="cal-day available">26</div>
+          <div class="cal-day available">27</div>
+          <div class="cal-day available">28</div>
+          <div class="cal-day available">29</div>
+          <div class="cal-day available">30</div>
+          <div class="cal-day available">31</div>
+        </div>
+        <p class="cal-note"><span class="he">צרו קשר לבדיקת זמינות</span><span class="en">Contact us to check availability</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <div class="strip-header">
+      <p class="section-eyebrow"><span class="he">תמונות</span><span class="en">Photos</span></p>
+    </div>
+    <div class="strip-scroll">
+      <div class="strip-photo"><img src="room1.jpg" alt="Room" /></div>
+      <div class="strip-photo"><img src="room2.jpg" alt="Room sea view" /></div>
+      <div class="strip-photo"><img src="room3.jpg" alt="Room details" /></div>
+      <div class="strip-photo"><img src="garden3.jpg" alt="Garden" /></div>
+      <div class="strip-photo"><img src="garden4.jpg" alt="Sea view" /></div>
+    </div>
+  </div>
+
+  <!-- MEMORIAL FULL -->
+  <section class="memorial" id="memorial">
+    <div class="container">
+      <div class="memorial-inner">
+        <div class="memorial-line"></div>
+        <p class="memorial-subtitle"><span class="he">לזכרו</span><span class="en">In Memoriam</span></p>
+        <h2 class="memorial-title"><span class="he">סמל זוהר שלום ז"ל</span><span class="en">Corporal Zohar Shalom z"l</span></h2>
+        <p class="memorial-subtitle">09.08.2004 — 21.06.2024</p>
+        <p class="memorial-text">
+          <span class="he">בן 20 מאילת, נפל במלחמת חרבות ברזל. אח לשלוש אחיות. אביו גולן בנה את הצימר הזה כאן בקולוניה — המקום שאהב — כדי להנציח את זכרו.</span>
+          <span class="en">Age 20 from Eilat, fell in the Iron Swords War. Brother to three sisters. His father Golan built this room at Colonia — the place he loved — to keep his memory alive forever.</span>
+          <em>
+            <span class="he">"הוא אהב מאוד את הפינה הזו בעולם, ועל כן בחרנו להנציח אותו כאן."</span>
+            <span class="en">"He loved this corner of the world deeply, and so we chose to memorialize him here."</span>
+          </em>
+        </p>
+        <div class="memorial-dates">
+          <span class="he">יהי זכרו ברוך</span><span class="en">May His Memory Be a Blessing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING CTA -->
+  <section class="booking-cta" id="booking-cta">
+    <div class="booking-cta-inner">
+      <p class="section-eyebrow"><span class="he">הזמנה</span><span class="en">Booking</span></p>
+      <h2 class="section-title" style="margin-bottom:16px;"><span class="he">לפרטים ומחירים <em>צרו קשר</em></span><span class="en">For Details &amp; Pricing <em>Contact Us</em></span></h2>
+      <p class="section-body" style="max-width:420px;margin:0 auto 36px;">
+        <span class="he">לא מציגים מחיר קבוע — כל הזמנה מותאמת אישית. נשמח לספר יותר ולתאם את הביקור.</span>
+        <span class="en">We don't list a fixed price — every booking is personal. We'd love to tell you more and arrange your visit.</span>
+      </p>
+      <a href="index.html#booking" class="btn-dark"><span class="he">לפרטים ומחירים צרו קשר</span><span class="en">Get in Touch</span></a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <p class="section-eyebrow"><span class="he">שאלות נפוצות</span><span class="en">FAQ</span></p>
+      <h2 class="section-title"><span class="he">שאלות <em>ותשובות</em></span><span class="en">Questions <em>&amp; Answers</em></span></h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span><span class="he">האם יש עוד אורחים בנכס בזמן השהייה?</span><span class="en">Are there other guests on the property during our stay?</span></span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner"><span class="he">לא. הצימר הוא היחיד בקולוניה, כלומר בזמן שאתם שם — אתם האורחים היחידים. פרטיות מוחלטת.</span><span class="en">No. The room is the only one at Colonia, meaning during your stay — you are the only guests. Complete privacy.</span></div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span><span class="he">מה נמצא בסביבה הקרובה?</span><span class="en">What's in the immediate area?</span></span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner"><span class="he">מועדון צלילה 5 דקות הליכה, מסעדה באתר, גן האירועים ממש כאן, ומעבר טאבה 5 דקות נסיעה — עם גישה לאתרי הצלילה המצריים.</span><span class="en">Dive club 5 min walk, on-site restaurant, the events garden right here, and Taba crossing 5 min drive — with access to Egyptian dive sites.</span></div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span><span class="he">מה הכי מומלץ לעשות בזמן השהייה?</span><span class="en">What's most recommended during the stay?</span></span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner"><span class="he">לישון עם חלון הבלקון פתוח ולהתעורר לזריחה על ים סוף. לצלול מהדקות הראשונות. ולשבת בשקט בגן בשעת השקיעה.</span><span class="en">Sleep with the balcony window open and wake up to Red Sea sunrise. Dive from the first minutes. And sit quietly in the garden at sunset.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- CONTACT -->
+  <section style="background:var(--cream,#F0EAE0);padding:80px 0;" id="contact-sub">
+    <div style="max-width:1120px;margin:0 auto;padding:0 56px;">
+      <p style="font-size:10px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:#8C4A28;margin-bottom:12px;">
+        <span class="he">צרו קשר</span><span class="en">Contact</span>
+      </p>
+      <h2 style="font-family:Cormorant Garamond,serif;font-size:clamp(32px,4vw,50px);font-weight:300;color:#3E2C20;margin-bottom:40px;">
+        <span class="he">דברו <em>איתנו</em></span><span class="en">Get in <em>Touch</em></span>
+      </h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#D6C4A8;">
+        <a href="tel:+972537764807" style="background:#F8F4EE;padding:36px 32px;text-decoration:none;display:block;transition:background 0.25s;">
+          <span style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#8C4A28;margin-bottom:12px;display:block;">
+            <span class="he">טלפון</span><span class="en">Phone</span>
+          </span>
+          <div style="font-size:17px;color:#3E2C20;font-weight:400;">+972-53-776-4807</div>
+          <div style="font-size:12px;color:#9A6A44;margin-top:6px;font-weight:300;"><span class="he">שיחה ישירה</span><span class="en">Direct call</span></div>
+        </a>
+        <a href="https://wa.me/972537764807" style="background:#F8F4EE;padding:36px 32px;text-decoration:none;display:block;transition:background 0.25s;">
+          <span style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#8C4A28;margin-bottom:12px;display:block;">WhatsApp</span>
+          <div style="font-size:17px;color:#3E2C20;font-weight:400;"><span class="he">שלח הודעה</span><span class="en">Send a message</span></div>
+          <div style="font-size:12px;color:#9A6A44;margin-top:6px;font-weight:300;"><span class="he">זמין 24/7</span><span class="en">Available 24/7</span></div>
+        </a>
+        <a href="https://maps.app.goo.gl/pSJWfZtYGJY27FjQ9" target="_blank" style="background:#F8F4EE;padding:36px 32px;text-decoration:none;display:block;transition:background 0.25s;">
+          <span style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#8C4A28;margin-bottom:12px;display:block;"><span class="he">מיקום</span><span class="en">Location</span></span>
+          <div style="font-size:17px;color:#3E2C20;font-weight:400;"><span class="he">דרך מצריים 160, אילת 8804346</span><span class="en">Derech Mitzraim 160, Eilat 8804346</span></div>
+          <div style="font-size:12px;color:#9A6A44;margin-top:6px;font-weight:300;">Google Maps</div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <span><a href="index.html"><span class="he">בחזרה לדף הבית</span><span class="en">Back to Home</span></a></span>
+    <span><span class="he">הצימר של זוהר - קולוניה אילת</span><span class="en">Zohar's Room - Colonia Eilat</span></span>
+    <span>© 2025 Colonia Rest House</span>
+  </footer>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="#booking-cta"><span class="he">הזמן עכשיו</span><span class="en">Book Now</span></a>
+  </div>
+
+  <script>
+    function setLang(l) {
+      document.body.classList.toggle('lang-en', l==='en');
+      document.getElementById('btn-he').classList.toggle('active', l==='he');
+      document.getElementById('btn-en').classList.toggle('active', l==='en');
+      document.documentElement.setAttribute('dir', l==='en' ? 'ltr' : 'rtl');
+      document.documentElement.setAttribute('lang', l);
+    }
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+      document.getElementById('stickyCta').classList.toggle('show', window.scrollY > 200);
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+    function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+  </script>
+</body>
+</html>
