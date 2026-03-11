@@ -483,9 +483,7 @@
         <span class="en">Fill in the form and we'll get back to you shortly with details and a personalized price.</span>
       </p>
 
-      <form class="booking-form" id="bookingForm" action="https://formspree.io/golanbenabu@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="הזמנה חדשה - הצימר של זוהר | Colonia" />
-        <input type="hidden" name="_language" value="he" />
+      <form class="booking-form" id="bookingForm">
 
         <div class="form-row">
           <div class="form-group">
@@ -524,8 +522,8 @@
         </button>
 
         <div class="form-success" id="formSuccess">
-          <span class="he">✓ הבקשה נשלחה! נחזור אליכם בהקדם.</span>
-          <span class="en">✓ Request sent! We'll get back to you shortly.</span>
+          <span class="he">✓ נפתח חלון שליחת מייל - שלחו אותו לסיום ההזמנה. נחזור אליכם בהקדם!</span>
+          <span class="en">✓ Your mail app is opening — send it to complete your booking request. We'll be in touch!</span>
         </div>
       </form>
     </div>
@@ -624,31 +622,32 @@
     });
     function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
-    // Booking form — Formspree AJAX submit
+    // Booking form — mailto (opens user's mail app, no server needed)
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
-      bookingForm.addEventListener('submit', async function(e) {
+      bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const btn = bookingForm.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.style.opacity = '0.6';
-        try {
-          const res = await fetch(bookingForm.action, {
-            method: 'POST',
-            body: new FormData(bookingForm),
-            headers: { Accept: 'application/json' }
-          });
-          if (res.ok) {
-            bookingForm.reset();
-            document.getElementById('formSuccess').style.display = 'block';
-          } else {
-            btn.disabled = false; btn.style.opacity = '1';
-            alert('שגיאה בשליחה. נסו שוב.');
-          }
-        } catch(err) {
-          btn.disabled = false; btn.style.opacity = '1';
-          alert('שגיאה בשליחה. נסו שוב.');
-        }
+        const name     = document.getElementById('f-name').value;
+        const phone    = document.getElementById('f-phone').value;
+        const email    = document.getElementById('f-email').value;
+        const checkin  = document.getElementById('f-checkin').value;
+        const checkout = document.getElementById('f-checkout').value;
+        const msg      = document.getElementById('f-msg').value;
+
+        const subject  = encodeURIComponent('הזמנה חדשה - הצימר של זוהר | Colonia');
+        const body     = encodeURIComponent(
+          'שם: ' + name + '\n' +
+          'טלפון: ' + phone + '\n' +
+          'אימייל: ' + email + '\n' +
+          'תאריך הגעה: ' + checkin + '\n' +
+          'תאריך עזיבה: ' + checkout + '\n' +
+          'הערות: ' + msg
+        );
+
+        window.location.href = 'mailto:golanbenabu@gmail.com?subject=' + subject + '&body=' + body;
+
+        bookingForm.reset();
+        document.getElementById('formSuccess').style.display = 'block';
       });
     }
   </script>
